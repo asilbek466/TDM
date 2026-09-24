@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MeningSayt - zamonaviy va ishonchli raqamli xizmatlar.">
+    <title>MeningSayt | Raqamli xizmatlar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="container" aria-label="Asosiy navigatsiya">
+            <a class="logo" href="#bosh-sahifa">Mening<span>Sayt</span></a>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Menyuni ochish"
+                aria-expanded="false">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#bosh-sahifa">Bosh sahifa</a></li>
+                <li><a href="#xizmatlar">Xizmatlar</a></li>
+                <li><a href="#biz-haqimizda">Biz haqimizda</a></li>
+                <li><a class="nav-cta" href="#aloqa">Bog‘lanish</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero container" id="bosh-sahifa">
+            <div class="hero-copy">
+                <p class="eyebrow">G‘oyadan natijagacha</p>
+                <h1>Biznesingiz uchun <span>raqamli yechimlar</span></h1>
+                <p class="hero-text">Mijozlaringizga qulay, tezkor va ishonchli onlayn tajriba yaratamiz.</p>
+                <div class="hero-actions">
+                    <a class="button primary" href="#aloqa">Loyihani boshlash</a>
+                    <a class="button secondary" href="#xizmatlar">Xizmatlarni ko‘rish</a>
+                </div>
+            </div>
+            <div class="hero-card" aria-label="Loyiha statistikasi">
+                <div class="card-top"><span class="status-dot"></span> Faol loyiha</div>
+                <strong>+48%</strong>
+                <p>Onlayn o‘sish</p>
+                <div class="chart" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+        </section>
+
+        <section class="section container" id="xizmatlar">
+            <div class="section-heading">
+                <p class="eyebrow">Nimalar qilamiz</p>
+                <h2>Kerakli xizmatlar, bitta jamoa</h2>
+            </div>
+            <div class="service-grid">
+                <article class="service"><span class="service-number">01</span>
+                    <h3>Veb-sayt yaratish</h3>
+                    <p>Brendingizni aniq ifodalaydigan zamonaviy va moslashuvchan saytlar.</p>
+                </article>
+                <article class="service"><span class="service-number">02</span>
+                    <h3>Raqamli strategiya</h3>
+                    <p>Maqsadingizga mos, o‘lchanadigan va amaliy rivojlanish rejasi.</p>
+                </article>
+                <article class="service"><span class="service-number">03</span>
+                    <h3>Texnik qo‘llab-quvvatlash</h3>
+                    <p>Saytingiz barqaror, xavfsiz va doim yangilanib turishi uchun yordam.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="about container" id="biz-haqimizda">
+            <div>
+                <p class="eyebrow">Nega MeningSayt?</p>
+                <h2>Oddiy fikrni kuchli natijaga aylantiramiz.</h2>
+            </div>
+            <p>Biz dizayn, texnologiya va biznes maqsadlarini bir joyga jamlaymiz. Har bir loyiha foydalanuvchi uchun
+                tushunarli va biznes uchun foydali bo‘lishi kerak.</p>
+        </section>
+
+        <section class="contact section container" id="aloqa">
+            <div class="contact-intro">
+                <p class="eyebrow">Aloqa</p>
+                <h2>Loyihangiz haqida gaplashamiz.</h2>
+                <p>Formani to‘ldiring, tez orada siz bilan bog‘lanamiz.</p>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <label for="name">Ismingiz</label><input id="name" name="name" type="text"
+                    placeholder="Ismingizni kiriting" required>
+                <label for="email">Elektron pochta</label><input id="email" name="email" type="email"
+                    placeholder="siz@example.com" required>
+                <label for="message">Xabaringiz</label><textarea id="message" name="message" rows="4"
+                    placeholder="Loyihangiz haqida qisqacha..." required></textarea>
+                <button class="button primary" type="submit">Xabar yuborish <span>→</span></button>
+                <p class="form-message" id="formMessage" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="currentYear">2026</span> MeningSayt. Barcha huquqlar himoyalangan.</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            menuToggle.setAttribute('aria-expanded', isOpen);
+        });
+        navLinks.addEventListener('click', (event) => {
+            if (event.target.matches('a')) navLinks.classList.remove('is-open');
+        });
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        document.getElementById('contactForm').addEventListener('submit', (event) => {
+            event.preventDefault();
+            document.getElementById('formMessage').textContent = 'Rahmat! Xabaringiz qabul qilindi.';
+            event.target.reset();
+        });
+    </script>
+</body>
+
+</html>
